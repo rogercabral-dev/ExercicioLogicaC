@@ -51,7 +51,7 @@ printf("\n== ANALISE DOS ALUNOS ==\n\n");
 for(i = 0; i < 3; i++){
   printf("A media do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].media);
   printf("A maior nota do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].maior);
-  printf("A menor do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].menor);
+  printf("A menor nota do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].menor);
   printf("\n");
 }
 
