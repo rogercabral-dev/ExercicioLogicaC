@@ -11,7 +11,7 @@ struct ListaAlunos{
 
 int main(){
 
-int i, j;
+int i, j, c;
 float soma;
 
 struct ListaAlunos alunos[3];
@@ -40,16 +40,24 @@ for (i = 0; i < 3; i++){
   }
   if( alunos[i].notas[j] <  alunos[i].menor){
      alunos[i].menor =  alunos[i].notas[j];
-  }
- } //Fechando do for j
+  } while((c = getchar()) != '\n' && c != EOF);
+ } //Fechando for j
   alunos[i].media = soma / 3;
   printf("\n");
 }  //Fechamento do for i
+
+FILE *arquivo;
+ arquivo = fopen("alunos.txt", "w"); // Abrindo arquivo / Escrevendo.
+ if(arquivo == NULL){
+    printf("Erro ao abrir o arquivo.\n");
+    return 1; // Teste de abertura do arquivo.
+ }
 
 printf("\n== ANALISE DOS ALUNOS ==\n\n");
 
 for(i = 0; i < 3; i++){
   printf("A media do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].media);
+  fprintf(arquivo, "Nome: %s | Media: %.2f\n", alunos[i].nome, alunos[i].media);//Armazenando no arquivo.
   printf("A maior nota do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].maior);
   printf("A menor nota do aluno %s eh %.2f\n",  alunos[i].nome,  alunos[i].menor);
   printf("\n");
